@@ -1,0 +1,38 @@
+{
+  "name": "M8-D2-Basic-Auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" ",
+    "dev": "nodemon -r dotenv/config ./src/",
+    "start": "node ./src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Isakov56/M8-D2-Basic-Auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Isakov56/M8-D2-Basic-Auth/issues"
+  },
+  "homepage": "https://github.com/Isakov56/M8-D2-Basic-Auth#readme",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.25.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-list-endpoints": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.16",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "query-to-mongo": "^0.10.1"
+  }
+}

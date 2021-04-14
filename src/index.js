@@ -2,7 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const listEndpoint = require('express-list-endpoints')
 const { join } = require("path")
-const usersRouter = require('./services/users')
+const services = require("./services");
+const cookieParser = require("cookie-parser");
 const mongoose = require('mongoose')
 const {
     notFoundHandler,
@@ -15,6 +16,7 @@ const {
 const server = express()
 
 server.use(cors())
+server.use(cookieParser());
 
 const port = process.env.PORT || 3006
 
@@ -22,7 +24,7 @@ const staticFolderPath = join(__dirname, "../public")
 server.use(express.static(staticFolderPath))
 server.use(express.json())
 
-server.use('/users', usersRouter)
+server.use("/api", services);
 
 server.use(badRequestHandler)
 server.use(forbiddenHandler)

@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose')
+const mongoose = require('mongoose')
+;
 
 const bcrypt = require('bcryptjs')
 
@@ -11,8 +13,17 @@ const UserSchema = new Schema({
   username: { type: String, unique: true },
   email: { type: String },
   password: { type: String },
-  bio: { type: String },
-  refreshTokens: [{ token: String }],
+  jobQualification: { type: String, default: ""},
+  education: { type: String },
+  posts: [{ type: Schema.Types.ObjectId, ref: "Posts" }],
+  questions: [{ type: Schema.Types.ObjectId, ref: "Questions" }],
+  answers: [{ type: Schema.Types.ObjectId, ref: "Answers" }],
+  savedPosts:[{ type: Schema.Types.ObjectId, ref: "Posts"}],
+  followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Users" }],
+	following: [{ type: mongoose.Schema.Types.ObjectId, ref: "Users" }],
+  description: { type: String, default: "" },
+  education: { type: String, default: "" },
+  location: { type: String, default: "" },
   image: {
     type: String,
     default: userPlaceholderImg,
@@ -47,4 +58,5 @@ UserSchema.pre("save", async function(next) {
     next()
 })
 
-module.exports = model('user', UserSchema)
+const User =  mongoose.model('Users', UserSchema)
+module.exports = User

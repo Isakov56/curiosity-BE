@@ -1,5 +1,5 @@
 const atob = require("atob");
-const UserModel = require("../users/schema");
+const UserModel = require("../users/user.schema");
 const jwt = require("jsonwebtoken")
 const { verifyJWT } = require("./tools")
 

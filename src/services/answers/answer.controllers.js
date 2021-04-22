@@ -20,7 +20,8 @@ exports.getAnswers = async (req, res, next) => {
 exports.getAllAnswers = async (req, res, next) => {
 	try {
         //const questionId = req.params._id 
-		const answers = await AnswerModel
+		const answers = await AnswerModel.find()
+        .populate("user", { name: 1, surname: 1, image: 1, jobQualification: 1}).populate("question");
 
         res.status(200).send(answers);
 		// if (answers.length > 0) {

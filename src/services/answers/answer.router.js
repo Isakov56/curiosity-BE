@@ -9,7 +9,7 @@ const {
 answersRoute.get("/:questionId",authorize,getAnswers)
 
 answersRoute.get("/getAll/me",authorize,getAllMyAnswers)
-answersRoute.get("/get/all/answers",authorize,getAllMyAnswers)
+answersRoute.get("/get/all/answers",authorize,getAllAnswers)
 
 answersRoute.put("/:answerId/editAnswerImage", authorize, cloudinaryMulter.single("answer"), editAnswerImage);
 

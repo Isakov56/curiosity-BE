@@ -77,6 +77,7 @@ exports.getAllQuestions = async (req, res, next) => {
 		// // send the respond
 
 		const allQuestions = await QuestionModel.find()
+		.populate("user", { name: 1, surname: 1, image: 1, jobQualification: 1}).populate("answers");
 
 		res.send(allQuestions);
 	} catch (error) {

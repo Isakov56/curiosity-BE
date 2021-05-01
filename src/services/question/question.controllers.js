@@ -48,33 +48,35 @@ exports.getAllQuestions = async (req, res, next) => {
 	try {
 		// first find my following ids
 
-		let followingQuestion = [];
-		let allQuestions = [];
+		// let followingQuestion = [];
+		// let allQuestions = [];
 
-		for (let i = 0; i < req.user.following.length; i++) {
-			const question = await QuestionModel.find({ user: req.user.following[i] })
-				.populate("user")
-				.populate({ path: "answers", populate: { path: "user" } });
-			followingQuestion.push(question);
+		// for (let i = 0; i < req.user.following.length; i++) {
+		// 	const question = await QuestionModel.find({ user: req.user.following[i] })
+		// 		.populate("user")
+		// 		.populate({ path: "answers", populate: { path: "user" } });
+		// 	followingQuestion.push(question);
 
-			// im getting an array of posts of people I following
-		}
-		const myQuestions = await QuestionModel.find({ user: req.user._id })
-			.populate("user")
-			.populate({ path: "answers", populate: { path: "user" } });
-		myQuestions.map((question) => {
-			allQuestions.push(question);
-		});
-		// for (let i = 0; i < followingPost.length; i++) {
-		// 	followingPost[i].forEach((element) => {
-		// 		allQuestions.push(element);
-		// 	});
+		// 	// im getting an array of posts of people I following
 		// }
-		allQuestions = allQuestions.sort((a, b) => b.createdAt - a.createdAt);
+		// const myQuestions = await QuestionModel.find({ user: req.user._id })
+		// 	.populate("user")
+		// 	.populate({ path: "answers", populate: { path: "user" } });
+		// myQuestions.map((question) => {
+		// 	allQuestions.push(question);
+		// });
+		// // for (let i = 0; i < followingPost.length; i++) {
+		// // 	followingPost[i].forEach((element) => {
+		// // 		allQuestions.push(element);
+		// // 	});
+		// // }
+		// allQuestions = allQuestions.sort((a, b) => b.createdAt - a.createdAt);
 
-		//then find all the posts of them
-		// sort by date pending !!!!
-		// send the respond
+		// //then find all the posts of them
+		// // sort by date pending !!!!
+		// // send the respond
+
+		const allQuestions = await QuestionModel.find()
 
 		res.send(allQuestions);
 	} catch (error) {

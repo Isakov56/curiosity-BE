@@ -80,6 +80,7 @@ exports.loginUser = async (req, res, next) => {
     const token = await authenticate(user)
     res.cookie("token", token.token, { httpOnly: true });
     res.cookie("isAuthUser", true);
+	console.dir(req.cookies.isAuthUser)
     res.send(token)
   } catch (error) {
     next(error)

@@ -14,4 +14,3 @@ services.use("/users", userRouter);
 
 module.exports = services;
 
-console.log('maraz')

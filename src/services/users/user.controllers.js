@@ -76,12 +76,12 @@ exports.deleteUserProfile = async (req, res, next) => {
 exports.loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body
-    const user = await User.findByCredentials(email, password)
-    const token = await authenticate(user)
+    const user = await User.findByCredentials(email, password);
+    const token = await authenticate(user);
     res.cookie("token", token.token, { httpOnly: true });
     res.cookie("isAuthUser", true);
-	console.dir(req.cookies.isAuthUser)
-    res.send(token)
+	console.dir(req.cookies.isAuthUser);
+    res.send(token);
   } catch (error) {
     next(error)
   }

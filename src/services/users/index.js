@@ -1,6 +1,6 @@
 module.exports = {
-	userRoute: require("./user.routers"),
-	UserModel: require("./user.schema"),
+	//userRoute: require("./user.routers"),
+	User: require("./user.schema"),
 };
 
 // const express = require("express")

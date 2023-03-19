@@ -1,5 +1,5 @@
 const atob = require("atob");
-const UserModel = require("../users/user.schema");
+const User = require("../users/user.schema");
 const jwt = require("jsonwebtoken")
 const { verifyJWT } = require("./tools")
 
@@ -10,7 +10,7 @@ const authorize = async (req, res, next) => {
     const decoded = await verifyJWT(token)
     
     console.log("hello")
-    const user = await UserModel.findOne({
+    const user = await User.findOne({
       _id: decoded._id,
     })
 

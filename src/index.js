@@ -12,7 +12,6 @@ const {
     genericErrorHandler,
 } = require("./errorHandlers")
 
-
 const server = express()
 
 server.use(cors())

@@ -1,4 +1,5 @@
 module.exports = {
+	userRoute: require("./user.routers"),
 	UserModel: require("./user.schema"),
 };
 

@@ -32,7 +32,10 @@ server.use(genericErrorHandler)
 
 console.log(listEndpoint(server))
 
-mongoose.connect(process.env.MONGODB_CONNECTION, {
+mongoose.connect(
+  //process.env.MONGODB_CONNECTION, 
+ 'mongodb+srv://isakov56:isakov56@cluster0.fgc6h.mongodb.net/bearer_token?retryWrites=true&w=majority',
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -43,3 +46,9 @@ mongoose.connect(process.env.MONGODB_CONNECTION, {
     })
   )
   .catch((err) => console.log(err))
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Database connection successful");
+});

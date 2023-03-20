@@ -32,9 +32,7 @@ server.use(genericErrorHandler)
 
 console.log(listEndpoint(server))
 
-mongoose.connect(
-  //process.env.MONGODB_CONNECTION, 
- 'mongodb+srv://isakov56:isakov56@cluster0.fgc6h.mongodb.net/bearer_token?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGODB_CONNECTION, 
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

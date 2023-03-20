@@ -24,7 +24,7 @@ const notFoundHandler = (err, req, res, next) => {
 const genericErrorHandler = (err, req, res, next) => {
   if (!res.headersSent) {
     // checks if another error middleware already sent a response
-    res.status(err.httpStatusCode || 500).send(err.message)
+    res.status(err.httpStatusCode || 500).send(err.message & ' We are here 500!')
   }
 }
 
